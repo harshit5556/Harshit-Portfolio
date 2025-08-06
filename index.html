@@ -4,439 +4,642 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Harshit Tiwari | Full Stack Developer & Competitive Programmer | Portfolio</title>
-    <link rel="stylesheet" href="stylesheet.css">
-    <link rel ="preconnect" href ="https://fonts.googleapis.com">
-    <link rel="preconnect" href ="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"rel="stylesheet">
-    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <style>
+        /* ---=== GLOBAL STYLES & MODERN RESET ===--- */
+        :root {
+            --dark-navy: #0a192f;
+            --light-navy: #112240;
+            --lightest-navy: #233554;
+            --slate: #8892b0;
+            --light-slate: #a8b2d1;
+            --lightest-slate: #ccd6f6;
+            --white: #e6f1ff;
+            --accent: #ff004f;
+            --font-sans: 'Poppins', sans-serif;
+            --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark-navy);
+            color: var(--slate);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+        }
+
+        section {
+            padding: 100px 0;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3 {
+            color: var(--lightest-slate);
+            font-weight: 600;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--white);
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(204, 214, 246, 0.1), rgba(204, 214, 246, 0.3), rgba(204, 214, 246, 0.1));
+            margin: 80px 0;
+        }
+        
+        /* ---=== HEADER & NAVIGATION ===--- */
+        #header {
+            padding: 0 50px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            background-color: rgba(10, 25, 47, 0.85);
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .left {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: var(--lightest-slate);
+            font-size: 1rem;
+            position: relative;
+        }
+        nav ul li a::after {
+            content: '';
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            transition: 0.4s;
+        }
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        nav .fas { display: none; }
+
+        /* ---=== HERO SECTION & 3D CANVAS ===--- */
+        .firstsection {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 100vh;
+            padding: 0;
+        }
+
+        .leftsection {
+            width: 50%;
+            font-size: clamp(2rem, 5vw, 3rem);
+            line-height: 1.2;
+        }
+        
+        .leftsection div {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: var(--slate);
+        }
+
+        .purple {
+            color: var(--accent);
+        }
+
+        .rightsection {
+            width: 50%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #bg-canvas {
+            width: 100% !important;
+            height: 100% !important;
+            cursor: grab;
+        }
+        #bg-canvas:active { cursor: grabbing; }
+
+        /* ---=== WORK EXPERIENCE (NEW TIMELINE) ===--- */
+        .secondSection h1 {
+            font-size: clamp(26px, 5vw, 32px);
+            margin-bottom: 40px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .secondSection h1::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 80%;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background-color: var(--lightest-navy);
+            top: 0;
+            bottom: 0;
+            left: 30px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 100%;
+            padding-left: 80px;
+            padding-bottom: 50px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: auto;
+            left: 21px;
+            background-color: var(--dark-navy);
+            border: 3px solid var(--accent);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .vertical-title {
+            font-size: 1.1rem;
+            color: var(--lightest-slate);
+            font-weight: 600;
+        }
+
+        .vertical-desc {
+            font-size: 0.9rem;
+            color: var(--slate);
+        }
+        
+        /* ---=== ABOUT SECTION ===--- */
+        #about .row {
+            display: flex;
+            gap: 50px;
+            align-items: flex-start;
+        }
+        .about-col-1 { flex-basis: 35%; }
+        .about-col-1 img { width: 100%; border-radius: 10px; border: 2px solid var(--lightest-navy); }
+        .about-col-2 { flex-basis: 65%; }
+        .sub-title { font-size: clamp(30px, 6vw, 45px); margin-bottom: 20px; }
+        .tab-titles { display: flex; margin: 20px 0 40px; gap: 30px; }
+        .tab-link { font-size: 1rem; cursor: pointer; position: relative; color: var(--slate); }
+        .tab-link::after { content: ''; width: 0; height: 2px; background: var(--accent); position: absolute; left: 0; bottom: -8px; transition: 0.5s; }
+        .tab-link.active-link { color: var(--accent); }
+        .tab-link.active-link::after { width: 100%; }
+        .tab-contents ul li { list-style: none; margin: 10px 0; }
+        .tab-contents ul li span { color: var(--accent); font-size: 1rem; font-weight: 500; }
+        .tab-contents { display: none; }
+        .tab-contents.active-tab { display: block; }
+        
+        /* ---=== SERVICES SECTION ===--- */
+        .service-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .service-list div {
+            background: var(--light-navy);
+            padding: 40px;
+            font-size: 0.9rem;
+            border-radius: 10px;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+        
+        .service-list div:hover {
+            transform: translateY(-7px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px -15px rgba(2,12,27,0.7);
+        }
+
+        .service-list div i { font-size: 40px; margin-bottom: 30px; color: var(--accent); }
+        .service-list div h2 { font-size: 1.4rem; margin-bottom: 15px; }
+
+        /* ---=== PORTFOLIO SECTION ===--- */
+        .work-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .work {
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            background: var(--light-navy);
+        }
+
+        .work img {
+            width: 100%;
+            display: block;
+            transition: transform 0.5s, opacity 0.5s;
+        }
+        
+        .layer {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(17, 34, 64, 0.8), rgba(255, 0, 79, 0.9));
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 0 20px;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .layer h3 { font-size: 1.5rem; margin-bottom: 10px; font-weight: 600; }
+        .layer p { font-size: 0.9rem; }
+        .layer a {
+            margin-top: 20px;
+            color: var(--accent);
+            background: var(--white);
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        .layer a:hover { transform: scale(1.1); }
+        .work:hover .layer { opacity: 1; }
+        .work:hover img { transform: scale(1.1); opacity: 0.2; }
+        
+        .btn {
+            display: block;
+            margin: 50px auto;
+            width: fit-content;
+            border: 1px solid var(--accent);
+            padding: 14px 50px;
+            border-radius: 4px;
+            color: var(--accent);
+            transition: var(--transition);
+        }
+        .btn:hover { background: rgba(255, 0, 79, 0.1); }
+        
+        /* ---=== CONTACT & FOOTER ===--- */
+        #contact .row { display: flex; gap: 50px; align-items: flex-start; }
+        .contact-left { flex-basis: 35%; }
+        .contact-right { flex-basis: 60%; }
+        .contact-left p { margin-top: 20px; }
+        .contact-left p i { color: var(--accent); margin-right: 15px; font-size: 1.2rem; }
+        .social-icon { margin-top: 30px; }
+        .social-icon a { font-size: 2rem; margin-right: 15px; color: var(--slate); transition: var(--transition); }
+        .social-icon a:hover { color: var(--accent); transform: translateY(-5px); }
+        .btn.btn2 { display: inline-block; background: transparent; border-color: var(--accent); color: var(--accent); }
+        .btn.btn2:hover { background: rgba(255, 0, 79, 0.1); }
+
+        form input, form textarea {
+            width: 100%;
+            border: 0;
+            outline: none;
+            background: var(--light-navy);
+            padding: 15px;
+            margin: 15px 0 0 0;
+            color: var(--lightest-slate);
+            font-size: 1rem;
+            border-radius: 6px;
+            border: 1px solid var(--lightest-navy);
+            transition: var(--transition);
+        }
+        form input:focus, form textarea:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(255, 0, 79, 0.3);
+        }
+        form .btn2 { margin-top: 20px; cursor: pointer; }
+        .copyright { text-align: center; padding: 25px 0; background: var(--light-navy); font-weight: 300; margin-top: 50px; font-size: 0.9rem; }
+    </style>
 </head>
+
 <body>
-        <!-- Loading Animation -->
-        <div class="loader-wrapper">
-            <div class="loader">
-                <div class="loader-inner"></div>
-            </div>
-        </div>
-
-        <!-- Floating Navigation Button -->
-    <div class="floating-nav">
-        <a href="#header" class="floating-nav-btn" title="Home"><i class="fas fa-home"></i></a>
-        <a href="#about" class="floating-nav-btn" title="About"><i class="fas fa-user"></i></a>
-        <a href="#service" class="floating-nav-btn" title="Services"><i class="fas fa-cog"></i></a>
-        <a href="#Portfolio" class="floating-nav-btn" title="Projects"><i class="fas fa-briefcase"></i></a>
-        <a href="#contact" class="floating-nav-btn" title="Contact"><i class="fas fa-envelope"></i></a>
-    </div>
-
     <header id="header">
         <nav>
             <div class="left">Harshit's Portfolio</div>
-             <div class="right">
+            <div class="right">
                 <ul id="sidemenu">
-                    <li><a href ="#header">Home</a></li>
-                    <li><a href ="#about">About</a></li>
-                    <li><a href ="#service">Services</a></li>
-                    <li><a href ="#Portfolio">Project</a></li>
-                    <li><a href ="#contact">Contact Me</a></li>
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#Portfolio">Projects</a></li>
+                    <li><a href="#contact">Contact Me</a></li>
                     <i class="fas fa-times" onclick="closemenu()"></i>
                 </ul>
                 <i class="fas fa-bars" onclick="openmenu()"></i>
-             </div>
+            </div>
         </nav>
     </header>
+
     <main>
-        <section class ="firstsection">
-         <div class="leftsection">
-            Hi, My name is <span class="purple">Harshit</span>
-            <div>and I am a Passionate</div>
-            <span id="element"></span>
-           
-         </div>
-         <div class ="rightsection">
-        <img src="images/developer.png" alt="">
-         </div>
+        <section class="firstsection">
+            <div class="leftsection">
+                Hi, My name is <span class="purple">Harshit Tiwari</span>
+                <div>and I am a Passionate</div>
+                <span id="element"></span>
+            </div>
+            <div class="rightsection">
+                <canvas id="bg-canvas"></canvas>
+            </div>
         </section>
+
         <hr>
-        <section class="secondSection">
-          <span class="text-gray">What i have done so far</span>  
-            <h1>Work Experience</h1>
-            <!--we change their name like box to horizontal line-->
-            <div class="vertical-box">
-                <div class="vertical">
-                    <img class="image-top" src="images/R.png" alt="">
-                    <div class="vertical-title">
-                        Frontend developer (2023-2025)
-                    </div>
-                    <div class="vertical-desc">
-                        Designed and developed various frontend web applications using HTML, CSS, JavaScript, and React, including a Full-Stack Delivery E-commerce Website,Code-Reviewer,Chat-App,Weather app, parallax-effect website, shopping cart, random GIF generator, and portfolio website. Focused on responsive design, interactive UI/UX, and optimized performance across devices. 
-                        Implemented dynamic features using APIs, state management, and modern web technologies."
-                    </div>
-                </div>
-                <div class="vertical">
-                    <img class="image-top" src="/images/N.png" alt="">
-                    <div class="vertical-title">
-                        Backend developer (2023-2025)
-                    </div>
-                    <div class="vertical-desc">
-                        Developed a Project using Node.js and Express, with a focus on building scalable RESTful APIs.
-                        Integrated MongoDB for database management, implemented user authentication, data validation, and secure authorization protocols. 
-                        Optimized server-side logic for performance and ensured efficient handling of requests, enhancing application reliability
-                    </div>
-                </div>
-                <div class="vertical">
-                    <img class="image-top" src="/images/N.png" alt="">
-                    <div class="vertical-title">
-                        Full Stack Web-developer (2024-2025)
-                    </div>
-                    <div class="vertical-desc">
-                        Developed a full-stack web application like Full-Stack Delivery E-commerce Website, Code-Reviewer,Chat-App,using React, Node.js, Express, and MongoDB. 
-                        Implemented key features including user authentication, dynamic routing, and a responsive front-end with seamless integration to back-end APIs for data management and real-time updates.
-                    </div>
-                </div>
-                <div class="vertical">
-                    <img class="image-top" src="images/d1.png" alt="">
-                    <div class="vertical-title">
-                        Data Structure and Algorithm (2023-2025)
-                    </div>
-                    <div class="vertical-desc">
-                        I have solved over 1000+ questions across different coding platforms, including 400+ questions on LeetCode, where he holds a rating of 1457.
-                    </div>
-                </div>
-                <div class="vertical">
-                    <img class="image-top" src="images/co.png" alt="">
-                    <div class="vertical-title">
-                        Competitive Programmer  (2024-2025)
-                    </div>
-                    <div class="vertical-desc">
-                        I am  a competitive programmer on Codeforces and Codechef  with a rating of 1247 on codeforce and on Codechef 3 star and has solved over 400+ questions on the platform.
 
-                    </div>
+        <section class="secondSection">
+            <h1>Work Experience</h1>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="vertical-title">Frontend Developer (2023-2025)</div>
+                    <div class="vertical-desc">Built responsive and interactive UIs using React, focusing on state management with Redux and creating a great user experience across devices.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="vertical-title">Backend Developer (2023-2025)</div>
+                    <div class="vertical-desc">Engineered scalable server-side applications with Node.js & Express, integrated with MongoDB, and implemented secure data validation.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="vertical-title">Full Stack Developer (2024-2025)</div>
+                    <div class="vertical-desc">Developed MERN stack apps like E-commerce sites and Chat-Apps, focusing on RESTful APIs, user auth, and real-time data with Socket.IO.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="vertical-title">Data Structures & Algorithms (2023-2025)</div>
+                    <div class="vertical-desc">Solved 1000+ problems on platforms like LeetCode (Rating: 1457) and Codeforces (Pupil), building a strong foundation in efficient problem-solving.</div>
                 </div>
             </div>
         </section>
-    </main>
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    <!-- Setup and start animation! -->
-  <script>
-    var typed = new Typed('#element', {
-      strings: ['Data Structure','Competitive Coder','Frontend Developer','Backend Developer ','Full Stack Web Developer'],
-      typeSpeed: 50,
-      backSpeed: 30,
-      loop: true,
-      loopCount: Infinity, // Infinite looping
-      showCursor: true,
-      cursorChar: '|', // Custom cursor character
-      smartBackspace: true, // Only backspace what's needed
-      startDelay: 1000, // Delay before starting
-      backDelay: 1500, // Delay before backspacing
-    });
-  </script>
-  <hr>
-
-   <!-- ABOUT-->
-  <div id ="about">
-    <div class="container">
-        <div class="row">
-            <div class="about-col-1">
-                <img src="images/d1.png">
-            </div>
-            <div class="about-col-2">
-                <h1 class="sub-title">About Me</h1>
-                <p>Passionate software developer pursuing B.Tech at NIT Bhopal with a strong interest in full-stack development and competitive programming. 
-                    Experienced in building dynamic web applications and solving complex problems across various coding platforms like Codeforces, LeetCode, Codechef and GFG. 
-                    Always eager to learn new technologies and contribute to impactful projects, with a focus on delivering efficient and scalable solutions
-                </p>
-                <div class="tab-titles">
-                    <p class="tab-link active-link" onclick="opentab('skills')">Skills</p>
-                    <p class="tab-link" onclick="opentab('experience')">Experience</p>
-                    <p class="tab-link" onclick="opentab('Education')">Education</p>
-                </div>
-                <div class="tab-contents active-tab" id="skills">
-                    <ul>
-                        <li><span>Frontend Developer</span><br>Designing Web interfaces</li>
-                        <li><span>Backend Developer</span><br>Developed RESTful APIs using Node.js, Express.js
-                        </li>
-                        <li><span>Data Structure</span><br>1000+ Problem Solving Different Coding Platform like LeetCode, Codeforces, Codechef and GFG.</li>
-                        <li><span>Language</span><br>C, C++, HTML, Tailwind-CSS, JavaScript, React, Node.js, Express.js, SQL</li>
-                    </ul>
-                </div>
-                <div class="tab-contents" id="experience">
-                    <ul>
-                        <li><span>2025-Current</span><br>B.Tech at Maulana Azad National Institute of Technology (NIT BHOPAL)</li>
-                        <li><span>Web-Development</span><br>Built various projects</li>
-                        <li><span>Projects (2023-2024)</span><br>Make Projects like Full-Stack Delivery E-commerce Website, ChatApp, Code-reviewer, Shopping-Cart, Generate Random GIF, Weather APP and other projects</li>
-                    </ul>
-                </div>
-                <div class="tab-contents" id="Education">
-                    <ul>
-                        <li><span>2022-2026</span><br>Maulana Azad National Institute of Technology Bhopal (NIT BHOPAL)</li>
-                        <li><span>B.Tech</span><br>Cgpa: 8.11</li>
-                        <li><span>2021</span><br>Saraswati Vidya Mandir Sultanpur Uttar Pradesh</li>
-                        <li><span>12th CBSE(PCM)</span><br>Percentage:89% </li>
-                        
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-  </div>
-  <hr>
-                  <!--SERVICE-->
-  <div id ="service">
-    <div class="container">
-        <h1 class="sub-title">MY Services</h1>
-        <div class="service-list">
-            <div>
-                <i class="material-icons">developer_mode</i>
-
-                <h2>Frontend Developer</h2>
-                <p>Designed and developed various frontend web applications using HTML, CSS, JavaScript, and React, including a Full-Stack Delivery E-commerce Website, Chat-App,Code-Reviewer, weather app, parallax-effect website, shopping cart, random GIF generator, and portfolio website. 
-                    Focused on responsive design, interactive UI/UX, and optimized performance across devices. 
-                    Implemented dynamic features using APIs, state management, and modern web technologies.</p>
-                 <a href="#">Learn more</a>
-            </div>
-            <div>
-                <i class="material-icons">computer</i>
-                <h2>Backend Developer</h2>
-                <p>Design & build RESTful APIs using Node.js/Express. Develop  APIs for efficient data fetchin.
-                     Third-party API integrations (Payment, Auth).
-                    API documentation using Postman. MongoDB schema design & optimization.
-                    Socket.IO implementation. Notification systems.
-                  </p>
-                 <a href="#">Learn more</a>
-            </div>
-            <div>
-                <i class="material-icons">terminal</i>
-
-                <h2>Data Structure and Competitive programmer</h2>
-                <p>I am solved over 1000+ questions across different coding platforms, including 500+ questions on LeetCode, where  I hold a rating of 1457 
-                    and also I am a competitive programmer on Codeforces and Codechef with a rating of 1247 on codeforces(Pupil on Codeforces) and on Codechef is 3 star and has solved over 400+ questions on the platform.</p>
-                 <a href="#">Learn more</a>
-            </div>
-        </div>
-    </div>
-  </div>
-  <hr>
-  <!--PORTFOLIO-->
-  <div id="Portfolio">
-    <div class="container">
-        <h1 class="sub-title">MY Projects</h1>
-        <div class="work-list">
-            <div class="work">
-                <img src="images/shopp.png">
-                <div class="layer">
-                    <h3>Shopping-Cart App</h3>
-                    <p>This project is a Shopping Cart web application built using ReactJS, React-router, Redux, and Tailwind CSS for
-                    styling.
-                    Feature: Add/Remove items into cart.
-                    Maintain global state using reducer and using Toast to show add and removal items.</p>
-                   <a href="https://github.com/harshit5556/Shopping-cart"><i class="material-icons">link</i></a>
-                    </div>
-            </div>
-            <div class="work">
-                <img src="images/chatapp.png">
-                <div class="layer">
-                    <h3>Chat-App:</h3>
-                    <p> Built with MERN stack (MongoDB, Express.js, React.js, Node.js). Enables real-time messaging between users using WebSockets.
-                        Features include user authentication, chat rooms, and secure routing.
-                    </p>
-                   <a href="https://github.com/harshit5556/Chat-App"><i class="material-icons">link</i></a>
-                    </div>
-            </div>
-            <div class="work">
-                <img src="images/3569158.jpg">
-                <div class="layer">
-                    <h3> Delivery E-commerce Website:</h3>
-                    <p>Developed a responsive e-commerce platform with MERN stack.  Allows users to browse, add to cart, order, and make online payments via Stripe.
-                      Admin functionality to add/update/delete products.</p>
-                   <a href="https://github.com/harshit5556/MERN-Ecommerce-App"><i class="material-icons">link</i></a>
-                    </div>
-            </div>
-            <div class="work">
-                <img src="https://img.icons8.com/external-flaticons-flat-flat-icons/512w/external-code-review-agile-flaticons-flat-flat-icons.png">
-                <div class="layer">
-                    <h3>Code-Reviewer:</h3>
-                    <p>Develop a full-stack application to analyze and review code snippets using the Gemini AI API</p>
-                   <a href="https://github.com/harshit5556/Code-reviewer"><i class="material-icons">link</i></a>
-                    </div>
-            </div>
-            <div class="work">
-                <img src="images/weather.png">
-                <div class="layer">
-                    <h3>Weather App:</h3>
-                    <p>OpenWeatherMap API to fetch real-time weather data based on city input. Displayed temperature, humidity, wind speed, and weather conditions dynamically</p>
-                   <a href="https://stellar-alfajores-db1a03.netlify.app/"><i class="material-icons">link</i></a>
-                    </div>
-            </div>
-            <div class="work">
-                <img src="images/gif.gif">
-                <div class="layer">
-                    <h3>Random-GIFS-Generator:</h3>
-                    <p>functionalities: generating a random GIF and searching for specific GIFs using a public API.
-                         React is used to manage the UI components and state.</p>
-                   <a href="https://github.com/harshit5556/Random-gifs"><i class="material-icons">link</i></a>
-                    </div>
-            </div>
-            <div class="work">
-                <img src="images/pass.png">
-                <div class="layer">
-                    <h3>Random-Password-Generator:</h3>
-                    <p>Developed a  random password generator that allows users to create secure passwords of 
-                        customizable lengths. </p>
-                   <a href="https://github.com/harshit5556/Random-Password-Generator"><i class="material-icons">link</i></a>
-                    </div>
-            </div>
-            <div class="work">
-                <img src="images/mountain.png">
-                <div class="layer">
-                    <h3>Parallex_Effect:</h3>
-                    <p>Built an engaging parallax scrolling website using HTML, CSS, and JavaScript for smooth visual storytelling. </p>
-                   <a href="https://idyllic-pixie-954732.netlify.app/"><i class="material-icons">link</i></a>
-                    </div>
-            </div>
-        </div>
-        <a href="https://github.com/harshit5556"class = "btn">See more</a>
-    </div>
-  </div>
-<hr>
-  <!-----               CONTACT         ------>
-  <div id="contact">
-    <div class="container">
-        <div class="row">
-            <div class="contact-left">
-               <h1 class="sub-title">Contact Me</h1>
-               <p><i class="fas fa-paper-plane"></i>ht8840641186@gmail.com</p>
-               <p><i class="fas fa-phone-square-alt"></i>+91-8840641186</p>
-               <div class="social-icon">
-                <a href="https://www.linkedin.com/in/harshit-tiwari-b30aa9286/"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/harshit5556"><i class="fab fa-github"></i></a>
-                <a href="https://codeforces.com/profile/harshit_NIT-B30"><i class="fas fa-code"></i></a>
-                    <a href="https://leetcode.com/u/ht8840641186"><i class="fas fa-code"></i></a>
-               </div>
-                 <a href="Harshit_curr_resume (27).pdf" download class="btn btn2">Download Resume</a>
-            </div>
-            <div class="contact-right">
-                <form action="https://formsubmit.co/ht8840641186@gmail.com" method="POST" onsubmit="return handleFormSubmit(event)">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <textarea name="message" rows="6" placeholder="Your Message"></textarea>
-                    
-                    <input type="hidden" name="_captcha" value="false">
-                  <input type="hidden" name="_subject" value="New Contact Form Message">
-                    
-                    <button type="submit" class="btn btn2">Submit</button>
-                  </form>
-                  
-               <div id="notification" class="notification-toast">
-                <span id="notification-message"></span>
-              </div>
-            </div>
-        </div>
-    </div>
-    <div class="copyright">
-       <p>Created by Harshit Tiwari | 2024 All Rights Reserved</p>
-    </div>
-  </div>
- 
-  <script>
-    var tablinks =document.getElementsByClassName("tab-link");
-    var tabcontents =document.getElementsByClassName("tab-contents");
-   function opentab(tabname){
-for(tablink of tablinks){
-    tablink.classList.remove("active-link")
-}
-for(tabcontent of tabcontents){
-    tabcontent.classList.remove("active-tab")
-}
-event.currentTarget.classList.add("active-link");
-document.getElementById(tabname).classList.add("active-tab");   
-}
-  </script>
-  <!-- this is for menu feature-->
-  <script>
-    var sidemenu =document.getElementById("sidemenu");
-    function openmenu() {
-        sidemenu.style.right="0";
-    }
-    function closemenu(){
-        sidemenu.style.right ="-200px";
-    }
-  </script>
-   <script>
-    // Loading animation script
-    window.addEventListener("load", function() {
-        // Fade out the loader
-        document.querySelector(".loader-wrapper").style.opacity = "0";
         
-        // Remove the loader from DOM after fade out completes
-        setTimeout(function() {
-            document.querySelector(".loader-wrapper").style.display = "none";
-        }, 500); // This should match the transition duration in CSS
-    });
+        <hr>
 
-    // Your existing JavaScript functions
-    var tablinks = document.getElementsByClassName("tab-link");
-    var tabcontents = document.getElementsByClassName("tab-contents");
-    function opentab(tabname) {
-        for(tablink of tablinks) {
-            tablink.classList.remove("active-link")
-        }
-        for(tabcontent of tabcontents) {
-            tabcontent.classList.remove("active-tab")
-        }
-        event.currentTarget.classList.add("active-link");
-        document.getElementById(tabname).classList.add("active-tab");   
-    }
+        <div id="about">
+            <section>
+                <div class="row">
+                    <div class="about-col-1">
+                        <img src="images/d1.png" alt="Harshit Tiwari">
+                    </div>
+                    <div class="about-col-2">
+                        <h1 class="sub-title">About Me</h1>
+                        <p>Passionate software developer pursuing B.Tech at MANIT Bhopal with a strong interest in full-stack development and competitive programming. Experienced in building dynamic web applications and solving complex problems. Always eager to learn new technologies and contribute to impactful projects, with a focus on delivering efficient and scalable solutions.</p>
+                        <div class="tab-titles">
+                            <p class="tab-link active-link" onclick="opentab('skills')">Skills</p>
+                            <p class="tab-link" onclick="opentab('Education')">Education</p>
+                        </div>
+                        <div class="tab-contents active-tab" id="skills">
+                            <ul>
+                                <li><span>Languages</span><br>C++, JavaScript (ES6+), HTML5, CSS3</li>
+                                <li><span>Frontend</span><br>React, Redux, Tailwind CSS</li>
+                                <li><span>Backend</span><br>Node.js, Express.js</li>
+                                <li><span>Databases</span><br>MongoDB, SQL</li>
+                                <li><span>Problem Solving</span><br>1000+ problems solved on LeetCode, Codeforces, etc.</li>
+                            </ul>
+                        </div>
+                        <div class="tab-contents" id="Education">
+                            <ul>
+                                <li><span>2022 - 2026</span><br>B.Tech at MANIT Bhopal - CGPA: 8.11</li>
+                                <li><span>2021</span><br>12th CBSE (PCM) from Saraswati Vidya Mandir - 89%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <hr>
 
-    var sidemenu = document.getElementById("sidemenu");
-    function openmenu() {
-        sidemenu.style.right = "0";
-    }
-    function closemenu() {
-        sidemenu.style.right = "-200px";
-    }
-</script>
-<script>
-    function handleFormSubmit(event) {
-      event.preventDefault(); // Stop normal form submission
-    
-      const form = event.target;
-    
-      // Send data using fetch (instead of form auto-submit)
-      fetch(form.action, {
-        method: "POST",
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          showNotification("Message Sent Successfully!");
-          form.reset();
-          // Optional: scroll to top or home section
-          document.getElementById("header").scrollIntoView({ behavior: "smooth" });
-        } else {
-          showNotification("Failed to send message. Try again.");
-        }
-      }).catch(error => {
-        showNotification("Error sending message.");
-      });
-    
-      return false; // Prevent default form action
-    }
-    
-    function showNotification(msg) {
-      const notification = document.getElementById("notification");
-      const message = document.getElementById("notification-message");
-    
-      message.innerText = msg;
-      notification.style.display = "block";
-    
-      setTimeout(() => {
-        notification.style.display = "none";
-      }, 3000);
-    }
+        <div id="Portfolio">
+             <section>
+                <h1 class="sub-title">My Projects</h1>
+                <div class="work-list">
+                    <div class="work">
+                        <img src="images/3569158.jpg" alt="E-commerce App">
+                        <div class="layer">
+                            <h3>E-commerce Website</h3>
+                            <p>Full-stack MERN platform with Stripe integration for payments and an admin panel for product management.</p>
+                            <a href="https://mern-ecommerce-app-frontend1.onrender.com/"><i class="fas fa-link"></i></a>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <img src="images/chatapp.png" alt="Chat App">
+                        <div class="layer">
+                            <h3>Real-Time Chat App</h3>
+                            <p>MERN stack application using Socket.IO for instant messaging, with secure user authentication.</p>
+                            <a href="https://github.com/harshit5556/Chat-App"><i class="fas fa-link"></i></a>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <img src="images/ai_code.png" alt="Code Reviewer">
+                        <div class="layer">
+                            <h3>AI Code Reviewer</h3>
+                            <p>Full-stack app using the Gemini AI API to analyze, review, and suggest improvements for code snippets.</p>
+                            <a href="https://code-reviewer-fron.onrender.com/"><i class="fas fa-link"></i></a>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <img src="images/vcart logo.png" alt="E-commerce App">
+                        <div class="layer">
+                            <h3>AIMART - AI-Powered E-commerce Website</h3>
+                            <p>Built a full-stack e-commerce platform using React, Node.js, Express, MongoDB, and Firebase for authentication. Added an AI voice assistant enabling hands-free product navigation.
+                                </p>
+                            <a href="https://aimart-frontend-a2fj.onrender.com/"><i class="fas fa-link"></i></a>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <img src="images/shopp.png" alt="E-commerce App">
+                        <div class="layer">
+                            <h3> Shopping Cart</h3>
+                            <p>A simple yet functional shopping cart application built with React, JavaScript, CSS, and HTML. Users can browse products, add them to their cart, and manage the cart while dynamically calculating the total price.</p>
+                            <a href="https://github.com/harshit5556/Shopping-Cart"><i class="fas fa-link"></i></a>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <img src="images/gif.gif" alt="E-commerce App">
+                        <div class="layer">
+                            <h3>Random-gifs</h3>
+                            <p>Random GIF Generator: A React App for Discovering and Sharing GIFs with a Fun Twist! 
+                                This project is a GIF generator built with HTML, CSS, JavaScript, and React.</p>
+                            <a href="https://github.com/harshit5556/Random-gifs"><i class="fas fa-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://github.com/harshit5556" class="btn">See more on GitHub</a>
+            </section>
+        </div>
+
+        <hr>
+
+        <div id="contact">
+            <section>
+                <div class="row">
+                    <div class="contact-left">
+                        <h1 class="sub-title">Contact Me</h1>
+                        <p><i class="fas fa-paper-plane"></i> ht8840641186@gmail.com</p>
+                        <p><i class="fas fa-phone-square-alt"></i> +91-8840641186</p>
+                        <div class="social-icon">
+                            <a href="https://www.linkedin.com/in/harshit-tiwari-b30aa9286/"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://github.com/harshit5556"><i class="fab fa-github"></i></a>
+                            <a href="https://leetcode.com/u/ht8840641186"><i class="fas fa-code"></i></a>
+                            <a href="https://codeforces.com/profile/harshit_T"><i class="fas fa-code"></i></a>
+                        </div>
+                        <a href="OFFCAMPUS_SDE.pdf" download class="btn btn2">Download Resume</a>
+                    </div>
+                    <div class="contact-right">
+                        <form action="https://formsubmit.co/ht8840641186@gmail.com" method="POST">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                            <input type="email" name="email" placeholder="Your Email" required>
+                            <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+                            <button type="submit" class="btn btn2">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="copyright">
+            <p>Created by Harshit Tiwari | 2024 All Rights Reserved</p>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Full Stack Developer', 'Competitive Programmer', 'Problem Solver'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            loop: true,
+        });
     </script>
     
+    <script>
+        var tablinks = document.getElementsByClassName("tab-link");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+        function opentab(tabname) {
+            for (tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for (tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+    </script>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({
+            canvas: document.querySelector('#bg-canvas'),
+            alpha: true
+        });
+
+        const container = document.querySelector('.rightsection');
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        camera.position.setZ(20);
+
+        const geometry = new THREE.IcosahedronGeometry(10, 1);
+        const material = new THREE.MeshBasicMaterial({
+            color: 0xff004f,
+            wireframe: true
+        });
+        const shape = new THREE.Mesh(geometry, material);
+        scene.add(shape);
+
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.enableZoom = false;
+        controls.enablePan = false;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            shape.rotation.x += 0.001;
+            shape.rotation.y += 0.002;
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            const container = document.querySelector('.rightsection');
+            if (container) {
+                renderer.setSize(container.clientWidth, container.clientHeight);
+                camera.aspect = container.clientWidth / container.clientHeight;
+                camera.updateProjectionMatrix();
+            }
+        });
+    </script>
 </body>
 </html>
